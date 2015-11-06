@@ -5,6 +5,9 @@ $(document).ready(function() {
   $('button.math').click(evaluate);
   $('button.sentence').click(count);
   $('button.gravatar').click(getGravatar);
+  $('input.math').on('keypress', (e) => { if (e.charCode === 13) evaluate(); });
+  $('input.sentence').on('keypress', (e) => { if (e.charCode === 13) count(); });
+  $('input.gravatar').on('keypress', (e) => { if (e.charCode === 13) getGravatar(); });
 
   function evaluate() {
     let op = $('input.math.op').val();
