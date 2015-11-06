@@ -37,7 +37,7 @@ function handleSentence(uri) {
   let sentence = decodeURI(uri[0]);
   return JSON.stringify({ "letters": sentence.replace(/\W/g, '').length,
                           "spaces":  sentence.replace(/[^\s]/g, '').length,
-                          "words":   sentence.split(' ').length });
+                          "words":   sentence.split(/\s+/).length });
 }
 
 function handleMath(uri) {
