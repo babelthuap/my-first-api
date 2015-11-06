@@ -36,7 +36,7 @@ server.listen(3000); // turn on the server
 function handleSentence(uri) {
   let sentence = decodeURI(uri[0]);
   return JSON.stringify({ "letters": sentence.replace(/\W/g, '').length,
-                          "spaces":  sentence.replace(/[^\s]/g, '').length,
+                          "spaces":  sentence.replace(/[\S]/g, '').length,
                           "words":   sentence.split(/\s+/).length });
 }
 
@@ -51,7 +51,7 @@ function handleMath(uri) {
   } else if (multiple[op]) {
     return `${op} of numbers = ${multiple[op](uri.slice(1))}`;
   } else {
-    return 'math function not available';
+    return 'invalid function';
   }
 }
 
