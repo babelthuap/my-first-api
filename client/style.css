@@ -1,0 +1,16 @@
+body {
+  color: #92AFB2;
+  background-color: #001E27;
+}
+
+#inputs {
+  text-align: left;
+}
+
+.tt {
+  font-family: monospace;
+}
+
+img {
+  border-radius: 10px;
+}
