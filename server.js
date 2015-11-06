@@ -25,7 +25,7 @@ let server = http.createServer(function(req, res) { // request, response
       res.write( handleSentence(uri) + '\n' );
       break;
     default:
-      res.write('not a valid library');
+      res.write('not a valid endpoint');
   }
 
   res.end();
@@ -35,13 +35,9 @@ server.listen(3000); // turn on the server
 
 function handleSentence(uri) {
   let sentence = decodeURI(uri[0]);
-  let letters = sentence.replace(/\W/g, '').length;
-  let spaces = sentence.replace(/[^\s]/g, '').length;
-  let words = sentence.split(' ').length;
-
-  return JSON.stringify({ "letters": letters,
-                          "spaces": spaces,
-                          "words": words });
+  return JSON.stringify({ "letters": sentence.replace(/\W/g, '').length,
+                          "spaces":  sentence.replace(/[^\s]/g, '').length,
+                          "words":   sentence.split(' ').length });
 }
 
 function handleMath(uri) {
