@@ -16,13 +16,13 @@ let server = http.createServer(function(req, res) { // request, response
   // handle different endpoints here
   switch (uri.splice(0,1)[0]) { // cuts off (& returns) the first entry
     case 'math':
-      res.write( handleMath(uri) + '\n' );
+      res.write( handleMath(uri) );
       break;
     case 'gravatar':
-      res.write( handleGravatar(uri) + '\n' );
+      res.write( handleGravatar(uri) );
       break;
     case 'sentence':
-      res.write( handleSentence(uri) + '\n' );
+      res.write( handleSentence(uri) );
       break;
     default:
       res.write('not a valid endpoint');
