@@ -2,20 +2,37 @@
 
 $(document).ready(function() {
 
-  $('#a-button').click(doThing);
+  $('button.math').click(evaluate);
+  $('button.sentence').click(count);
+  $('button.gravatar').click(getGravatar);
 
-  function doThing() {
-    console.log('a thing');
+  function evaluate() {
+    let op = $('input.math.op').val();
+    let args = $('input.math.args').val().replace(/,\s*/g, '/');
+    $.ajax(`http://localhost:3000/math/${op}/${args}`)
+    .done((data) => {
+      $('span.math').text(data);
+    });
   }
 
-  console.log(`$.ajax('http://localhost:3000/math/sum/3/4/5/6')
-  .done(function(data){
-    console.log(data)
-  });`)
+  function count() {
+    let sentence = encodeURI( $('input.sentence').val() );
+    $.ajax(`http://localhost:3000/sentence/${sentence}`)
+    .done((data) => {
+      let counts = JSON.parse(data);
+      $('span.sentence').text(`Letters: ${counts.letters}, ` + 
+                              `Spaces: ${counts.spaces}, ` +
+                              `Words: ${counts.words}`);
+    });
+  }
 
-  $.ajax('http://localhost:3000/math/sum/3/4/5/6')
-  .done(function(data){
-    console.log(data)
-  });
+  function getGravatar() {
+    let email = $('input.gravatar').val();
+    $.ajax(`http://localhost:3000/gravatar/${email}`)
+    .done((data) => {
+      let $img = $('<img>').attr('src', data + '?s=256');
+      $('div.gravatar').empty().append( $img );
+    });
+  }
 
 });
