@@ -2,7 +2,7 @@
 
 Nicholas Neumann-Chun
 
-If you clone it, do "`npm install`" and then "`node server.js`" (or "`nodemon server.js`" if you're cool like that). It will serve up on port 3000. Endpoints are
+If you clone it, do "`npm install`" and then "`node server.js`" (or "`nodemon server.js`" if you're cool like that). It will serve up on port 3000. Open the client index.html however you like. Endpoints are
 
 - `gravatar/`_email address_: responds with a url of the associated Gravatar picture
 - `sentence/`_a sentence encoded with encodeURI_: counts the letters, spaces, and words in the sentence and responds with a JSON object containing that information
