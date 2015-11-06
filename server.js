@@ -53,7 +53,7 @@ function handleMath(uri) {
   } else if (binary[op] && !isNaN(+n) && !isNaN(+m)) {
     return `${op}(${n}, ${m}) -> ${binary[op](n, m)}`;
   } else if (multiple[op]) {
-    return `${op} of numbers = ${multiple[op](uri.slice(2))}`;
+    return `${op} of numbers = ${multiple[op](uri.slice(1))}`;
   } else {
     return 'math function not available';
   }

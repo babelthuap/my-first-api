@@ -8,7 +8,7 @@ If you clone it, do "npm install" and then "node server.js" (or "nodemon server.
 - `sentence/`a sentence encoded with encodeURI
 - `math/`function
 
-The math functions (with parameters n and m) are
+The math functions (with parameters `n` and `m`) are
 
 - *unary:* `square/n`, `cube/n`, `double/n`, `binary/n`, `hex/n`,
 - *binary:* `max/n/m`, `min/n/m`, `add/n/m`, `multiply/n/m`, `divide/n/m`
